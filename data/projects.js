@@ -19,7 +19,7 @@ const PROJECTS = [
         description: "Architecture segmentée multi-zones (Management, SOC, DMZ, Production, Pre-Production, Cybersecurity). Haute disponibilité via pfSense HA pairs avec VIP VRRP. Stack SOC complète : Wazuh, Suricata, Shuffle, Zabbix, OpenCTI. Lab offensif incluant DVWA, OWASP Juice Shop, Metasploitable.",
         link: {
             label: "[view documentation]",
-            href: "https://github.com/Asashi-Git"
+            href: "https://github.com/Asashi-Git/HomeLab"
         }
     },
     {
@@ -50,7 +50,10 @@ const PROJECTS = [
         tags: ["linux", "networking", "scripting"],
         summary: "Freelance Linux engineering mission. Deployment and hardening of Arch Linux servers with Linux-Hardened kernel. Secure web server configuration, reverse proxy setup, and Bash automation scripts.",
         description: "Deployed two Arch Linux servers using the Linux-Hardened kernel for maximum system security. Configured a secure web server environment with industry-standard encryption protocols. Implemented a reverse proxy for traffic management and infrastructure isolation. Developed Bash scripts to automate Linux update cycles and reduce configuration drift.",
-        link: null
+        link: {
+            label: "[view site]",
+            href: "https://brume-s.com/"
+        }
     },
     {
         id: "arch-hardening",
