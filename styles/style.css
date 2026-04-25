@@ -324,15 +324,29 @@ section {
 
 /* ── CERTIFICATIONS TERMINAL — separate fixed height ── */
 #cert-body {
-    height:     340px;
-    min-height: 340px;
-    max-height: 340px;
-    width:      100%;
-    min-width:  0;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
+    height:           340px;
+    min-height:       340px;
+    max-height:       340px;
+    width:            100%;
+    min-width:        0;
+    box-sizing:       border-box;
+    overflow-y:       auto;
+    overflow-x:       hidden;
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    0 0 var(--radius) var(--radius);
+    padding:          1.5rem;
+    scrollbar-width:  thin;
+    scrollbar-color:  var(--border) transparent;
 }
+
+#cert-body::-webkit-scrollbar       { width: 4px; }
+#cert-body::-webkit-scrollbar-track { background: transparent; }
+#cert-body::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius:    2px;
+}
+
 
 /* ── TERMINAL OUTPUT LINES ───────────────────── */
 .t-line {
@@ -724,9 +738,14 @@ section {
 
 /* ── CERTIFICATIONS ──────────────────────────── */
 .cert-terminal {
-    width:     min(860px, 90vw);
-    min-width: min(860px, 90vw);
-    max-width: min(860px, 90vw);
+    width:          min(860px, 90vw);
+    min-width:      min(860px, 90vw);
+    max-width:      min(860px, 90vw);
+    margin:         0 auto;
+    display:        flex;
+    flex-direction: column;
+    overflow:       hidden;
+    box-sizing:     border-box;
 }
 
 /* ── CONTACT ─────────────────────────────────── */
@@ -795,6 +814,11 @@ section {
         min-height: 280px;
         max-height: 280px;
     }
+    #cert-body {
+        height:     280px;
+        min-height: 280px;
+        max-height: 280px;
+    }
 }
 
 /* ── SCROLL REVEAL ───────────────────────────── */
@@ -831,4 +855,3 @@ section {
     color:            var(--accent);
     background-color: var(--accent-dim);
 }
-
