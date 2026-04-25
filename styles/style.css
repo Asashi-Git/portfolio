@@ -1,0 +1,834 @@
+/* ═══════════════════════════════════════════════
+   SAMUEL DECARNELLE — PORTFOLIO
+   style.css
+   ═══════════════════════════════════════════════ */
+
+/* ── THEME VARIABLES ─────────────────────────── */
+:root {
+    --bg:             #0d0f10;
+    --bg-secondary:   #111416;
+    --bg-card:        #161a1d;
+    --border:         #1e2428;
+    --text:           #cccccc;
+    --text-bright:    #ffffff;
+    --text-muted:     #555f6b;
+    --accent:         #00aaff;
+    --accent-dim:     rgba(0, 170, 255, 0.08);
+    --accent-hover:   #33bbff;
+    --red:            #ff5f57;
+    --yellow:         #febc2e;
+    --green:          #28c840;
+    --blue:           #4fc3f7;
+    --transition:     0.3s ease;
+    --font-mono:      'JetBrains Mono', 'Courier New', monospace;
+    --font-sans:      'Inter', sans-serif;
+    --radius:         4px;
+    --max-width:      1100px;
+}
+
+body.light {
+    --bg:             #f4f4f4;
+    --bg-secondary:   #ffffff;
+    --bg-card:        #ebebeb;
+    --border:         #d0d0d0;
+    --text:           #333333;
+    --text-bright:    #000000;
+    --text-muted:     #888888;
+    --accent:         #0077cc;
+    --accent-dim:     rgba(0, 119, 204, 0.08);
+    --accent-hover:   #0055aa;
+}
+
+/* ── RESET & BASE ────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover { color: var(--accent-hover); }
+
+ul { list-style: none; }
+
+img { max-width: 100%; }
+
+/* ── CONTAINERS ──────────────────────────────── */
+.container {
+    max-width:  var(--max-width);
+    margin:     0 auto;
+    padding:    0 2rem;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── TYPOGRAPHY ──────────────────────────────── */
+.section-title {
+    font-family: var(--font-mono);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+}
+
+/* ── CURSOR ──────────────────────────────────── */
+.cursor-blink {
+    animation: blink 1.1s step-end infinite;
+    color: var(--accent);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* ── NAVBAR ──────────────────────────────────── */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--transition);
+}
+
+.nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-logo {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    transition: color var(--transition), background-color var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+    background-color: var(--accent-dim);
+}
+
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all var(--transition);
+    flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+#burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    flex-shrink: 0;
+}
+
+#burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text);
+    transition: all var(--transition);
+}
+
+/* ── TERMINAL COMPONENT (shared base) ────────── */
+.terminal-bar {
+    background-color: var(--bg-secondary);
+    border:           1px solid var(--border);
+    border-bottom:    none;
+    border-radius:    var(--radius) var(--radius) 0 0;
+    padding:          0.5rem 1rem;
+    display:          flex;
+    align-items:      center;
+    gap:              0.4rem;
+    width:            100%;
+    min-width:        0;
+    overflow:         hidden;
+    box-sizing:       border-box;
+    flex-shrink:      0;
+}
+
+.t-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.t-dot.red    { background-color: var(--red); }
+.t-dot.yellow { background-color: var(--yellow); }
+.t-dot.green  { background-color: var(--green); }
+
+.t-title {
+    color:          var(--text-muted);
+    font-size:      0.8rem;
+    margin-left:    0.5rem;
+    overflow:       hidden;
+    text-overflow:  ellipsis;
+    white-space:    nowrap;
+    min-width:      0;
+}
+
+/* ── HERO ────────────────────────────────────── */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+}
+
+/*
+ * The outermost terminal shell.
+ * Its width is the single source of truth for the entire terminal.
+ * Nothing inside can ever make it grow.
+ */
+.hero-terminal {
+    width:          100%;
+    max-width:      860px;
+    min-width:      0;
+    margin:         0 auto 2rem;
+    display:        flex;
+    flex-direction: column;
+    overflow:       hidden;
+    box-sizing:     border-box;
+    flex-shrink:    0;
+    flex-grow:      0;
+}
+
+/* ── TERMINAL WRAPPER ────────────────────────── */
+#hero-terminal {
+    width:     min(860px, 90vw);
+    min-width: min(860px, 90vw);
+}
+
+
+/*
+ * The scrollable content area.
+ * Height is locked on three axes: min, max, and explicit.
+ * Width is always 100% of .hero-terminal, never of its content.
+ */
+.terminal-body {
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    0 0 var(--radius) var(--radius);
+    padding:          1.5rem;
+
+    height:           340px;
+    min-height:       340px;
+    max-height:       340px;
+
+    width:            100%;
+    min-width:        0;
+    max-width:        100%;
+    box-sizing:       border-box;
+
+    overflow-y:       auto;
+    overflow-x:       hidden;
+
+    scrollbar-width:  thin;
+    scrollbar-color:  var(--border) transparent;
+}
+
+.terminal-body::-webkit-scrollbar       { width: 4px; }
+.terminal-body::-webkit-scrollbar-track { background: transparent; }
+.terminal-body::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius:    2px;
+}
+
+/*
+ * The inner flex column that stacks all output lines.
+ * min-height: 100% keeps the input line at the bottom
+ * even when there is very little content.
+ * width: 100% + overflow: hidden is the inner guard against
+ * horizontal escape.
+ */
+#hero-terminal-body {
+    display:        flex;
+    flex-direction: column;
+    min-height:     100%;
+    width:          100%;
+    min-width:      0;
+    overflow:       hidden;
+    box-sizing:     border-box;
+}
+
+/* ── CERTIFICATIONS TERMINAL — separate fixed height ── */
+#cert-body {
+    height:     340px;
+    min-height: 340px;
+    max-height: 340px;
+    width:      100%;
+    min-width:  0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ── TERMINAL OUTPUT LINES ───────────────────── */
+.t-line {
+    font-size:     0.9rem;
+    color:         var(--text-muted);
+    margin-bottom: 0.25rem;
+    word-break:    break-word;
+    overflow-wrap: break-word;
+    white-space:   pre-wrap;
+    width:         100%;
+    min-width:     0;
+    box-sizing:    border-box;
+    overflow-x:    hidden;
+    display:       block;
+}
+
+.t-output {
+    color:         var(--text);
+    margin-bottom: 0.5rem;
+    padding-left:  1.2rem;
+    word-break:    break-word;
+    overflow-wrap: break-word;
+    white-space:   pre-wrap;
+    width:         100%;
+    min-width:     0;
+    box-sizing:    border-box;
+    overflow-x:    hidden;
+    display:       block;
+}
+
+.t-error {
+    color:         var(--red);
+    margin-bottom: 0.25rem;
+    word-break:    break-word;
+    white-space:   pre-wrap;
+    width:         100%;
+    min-width:     0;
+    box-sizing:    border-box;
+    overflow-x:    hidden;
+    display:       block;
+}
+
+.t-success {
+    color:         var(--green);
+    margin-bottom: 0.25rem;
+    word-break:    break-word;
+    white-space:   pre-wrap;
+    width:         100%;
+    min-width:     0;
+    box-sizing:    border-box;
+    overflow-x:    hidden;
+    display:       block;
+}
+
+/* ── TERMINAL INPUT LINE ─────────────────────── */
+.terminal-input-line {
+    display:     flex;
+    align-items: center;
+    gap:         0.6rem;
+    padding-top: 0.4rem;
+    margin-top:  auto;
+    width:       100%;
+    min-width:   0;
+    box-sizing:  border-box;
+    overflow:    hidden;
+    flex-shrink: 0;
+}
+
+.t-prompt {
+    color:       var(--accent);
+    flex-shrink: 0;
+}
+
+/*
+ * The input field is the most critical element.
+ * flex: 1 allows it to fill the remaining row width.
+ * width: 0 is mandatory: without it, an empty input
+ * sizes itself to its placeholder and pushes every
+ * ancestor wider. With width: 0, it starts at zero
+ * and only grows via flex into the space already available.
+ */
+#terminal-input {
+    background:  transparent;
+    border:      none;
+    outline:     none;
+    color:       var(--text);
+    font-family: var(--font-mono);
+    font-size:   0.88rem;
+    caret-color: var(--accent);
+    flex:        1;
+    width:       0;
+    min-width:   0;
+    box-sizing:  border-box;
+}
+
+/* ── LS OUTPUT GRID ──────────────────────────── */
+.t-ls-grid {
+    display:       flex;
+    flex-wrap:     wrap;
+    gap:           0.25rem 1.5rem;
+    padding-left:  1.2rem;
+    margin-bottom: 0.5rem;
+    width:         100%;
+    min-width:     0;
+    box-sizing:    border-box;
+    overflow:      hidden;
+}
+
+.t-ls-item {
+    font-family: var(--font-mono);
+    font-size:   0.88rem;
+    white-space: nowrap;
+}
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn-primary {
+    display:       inline-block;
+    padding:       0.6rem 1.2rem;
+    border:        1px solid var(--accent);
+    color:         var(--accent);
+    font-family:   var(--font-mono);
+    font-size:     0.85rem;
+    border-radius: var(--radius);
+    transition:    all var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    color:            var(--bg);
+}
+
+.btn-secondary {
+    display:       inline-block;
+    padding:       0.6rem 1.2rem;
+    border:        1px solid var(--border);
+    color:         var(--text-muted);
+    font-family:   var(--font-mono);
+    font-size:     0.85rem;
+    border-radius: var(--radius);
+    transition:    all var(--transition);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color:        var(--accent);
+}
+
+/* ── ABOUT ───────────────────────────────────── */
+.about-grid {
+    display:               grid;
+    grid-template-columns: 1fr 280px;
+    gap:                   4rem;
+    align-items:           start;
+}
+
+.about-text p {
+    margin-bottom: 1.25rem;
+    font-family:   var(--font-sans);
+    color:         var(--text);
+    font-size:     0.95rem;
+}
+
+.about-stats {
+    display:               grid;
+    grid-template-columns: 1fr 1fr;
+    gap:                   1rem;
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    var(--radius);
+    padding:          1.25rem;
+    text-align:       center;
+    transition:       border-color var(--transition);
+}
+
+.stat-card:hover { border-color: var(--accent); }
+
+.stat-number {
+    display:     block;
+    font-size:   2rem;
+    font-weight: 700;
+    color:       var(--accent);
+}
+
+.stat-label {
+    display:    block;
+    font-size:  0.75rem;
+    color:      var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* ── HOMELAB ─────────────────────────────────── */
+#homelab { background-color: var(--bg-secondary); }
+
+.diagram-block {
+    margin-bottom: 3rem;
+}
+
+.diagram-content {
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    0 0 var(--radius) var(--radius);
+    padding:          1.5rem;
+    font-size:        0.78rem;
+    color:            var(--text);
+    overflow-x:       auto;
+    line-height:      1.6;
+}
+
+.homelab-zones {
+    display:               grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:                   1rem;
+    margin-bottom:         2.5rem;
+}
+
+.zone-card {
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    var(--radius);
+    padding:          1.25rem;
+    transition:       border-color var(--transition), transform var(--transition);
+}
+
+.zone-card:hover {
+    border-color: var(--accent);
+    transform:    translateY(-2px);
+}
+
+.zone-label {
+    display:       block;
+    color:         var(--accent);
+    font-size:     0.8rem;
+    font-weight:   700;
+    margin-bottom: 0.75rem;
+}
+
+.zone-card p {
+    font-size:   0.82rem;
+    color:       var(--text-muted);
+    line-height: 1.6;
+}
+
+.homelab-cta {
+    text-align: center;
+}
+
+/* ── PROJECTS ────────────────────────────────── */
+.filter-bar {
+    display:       flex;
+    gap:           0.5rem;
+    flex-wrap:     wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background:    none;
+    border:        1px solid var(--border);
+    color:         var(--text-muted);
+    font-family:   var(--font-mono);
+    font-size:     0.8rem;
+    padding:       0.3rem 0.75rem;
+    border-radius: var(--radius);
+    cursor:        pointer;
+    transition:    all var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color:     var(--accent);
+    color:            var(--accent);
+    background-color: var(--accent-dim);
+}
+
+.projects-grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap:                   1rem;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    var(--radius);
+    padding:          1.5rem;
+    transition:       border-color var(--transition), transform var(--transition);
+    display:          flex;
+    flex-direction:   column;
+    gap:              0.75rem;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform:    translateY(-2px);
+}
+
+.project-card-header {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     flex-start;
+    gap:             1rem;
+}
+
+.project-name {
+    color:       var(--text-bright);
+    font-size:   0.95rem;
+    font-weight: 500;
+}
+
+.project-status {
+    font-size:     0.72rem;
+    padding:       0.15rem 0.4rem;
+    border-radius: var(--radius);
+    flex-shrink:   0;
+    border:        1px solid;
+}
+
+.status-active    { color: var(--accent);     border-color: var(--accent); }
+.status-completed { color: var(--green);      border-color: var(--green);  }
+.status-planned   { color: var(--text-muted); border-color: var(--border); }
+
+.project-summary {
+    font-size:   0.83rem;
+    color:       var(--text-muted);
+    line-height: 1.6;
+    flex:        1;
+}
+
+.project-tags {
+    display:   flex;
+    flex-wrap: wrap;
+    gap:       0.4rem;
+}
+
+.project-tag {
+    font-size:     0.72rem;
+    color:         var(--text-muted);
+    border:        1px solid var(--border);
+    padding:       0.1rem 0.4rem;
+    border-radius: var(--radius);
+}
+
+.project-link {
+    font-size:  0.8rem;
+    color:      var(--accent);
+    align-self: flex-start;
+}
+
+/* ── SKILLS ──────────────────────────────────── */
+.skills-grid {
+    display:               grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:                   1.5rem;
+}
+
+.skill-category {
+    background-color: var(--bg-card);
+    border:           1px solid var(--border);
+    border-radius:    var(--radius);
+    padding:          1.5rem;
+    transition:       border-color var(--transition);
+}
+
+.skill-category:hover { border-color: var(--accent); }
+
+.skill-cat-title {
+    color:         var(--accent);
+    font-size:     0.85rem;
+    font-weight:   600;
+    margin-bottom: 1rem;
+    font-family:   var(--font-mono);
+}
+
+.skill-list li {
+    font-size:     0.82rem;
+    color:         var(--text);
+    padding:       0.3rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.skill-list li:last-child { border-bottom: none; }
+
+.skill-list li::before {
+    content: '> ';
+    color:   var(--accent);
+}
+
+/* ── CERTIFICATIONS ──────────────────────────── */
+.cert-terminal {
+    width:     min(860px, 90vw);
+    min-width: min(860px, 90vw);
+    max-width: min(860px, 90vw);
+}
+
+/* ── CONTACT ─────────────────────────────────── */
+.contact-grid {
+    max-width: 600px;
+}
+
+.contact-line {
+    display:       flex;
+    align-items:   center;
+    gap:           1rem;
+    padding:       0.9rem 0;
+    border-bottom: 1px solid var(--border);
+    color:         var(--text);
+    transition:    color var(--transition);
+}
+
+.contact-line:hover { color: var(--accent); }
+
+.contact-prompt {
+    color:       var(--accent);
+    flex-shrink: 0;
+}
+
+.contact-label {
+    color:       var(--text-muted);
+    font-size:   0.85rem;
+    width:       80px;
+    flex-shrink: 0;
+}
+
+.contact-value {
+    font-size: 0.85rem;
+}
+
+/* ── FOOTER ──────────────────────────────────── */
+#footer {
+    padding:       2rem 0;
+    text-align:    center;
+    border-bottom: none;
+}
+
+#footer p {
+    color:     var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 900px) {
+    .about-grid    { grid-template-columns: 1fr; }
+    .homelab-zones { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid   { grid-template-columns: repeat(2, 1fr); }
+    .nav-links     { display: none; }
+    #burger        { display: flex; }
+}
+
+@media (max-width: 600px) {
+    .homelab-zones   { grid-template-columns: 1fr; }
+    .skills-grid     { grid-template-columns: 1fr; }
+    .about-stats     { grid-template-columns: repeat(2, 1fr); }
+    .hero-cta        { flex-direction: column; }
+    .diagram-content { font-size: 0.65rem; }
+
+    .terminal-body {
+        height:     280px;
+        min-height: 280px;
+        max-height: 280px;
+    }
+}
+
+/* ── SCROLL REVEAL ───────────────────────────── */
+.reveal {
+    opacity:    0;
+    transform:  translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity:   1;
+    transform: translateY(0);
+}
+
+/* ── BURGER MENU OPEN STATE ──────────────────── */
+@media (max-width: 900px) {
+    .nav-links.open {
+        display:          flex;
+        flex-direction:   column;
+        position:         absolute;
+        top:              60px;
+        left:             0;
+        right:            0;
+        background-color: var(--bg);
+        border-bottom:    1px solid var(--border);
+        padding:          1rem 2rem;
+        gap:              0.5rem;
+        z-index:          999;
+    }
+}
+
+/* ── ACTIVE NAV LINK ─────────────────────────── */
+.nav-links a.active-link {
+    color:            var(--accent);
+    background-color: var(--accent-dim);
+}
+

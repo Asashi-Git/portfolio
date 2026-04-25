@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Samuel Decarnelle — Cybersecurity Student & Penetration Testing Enthusiast">
+    <title>Samuel Decarnelle</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="dark">
+
+    <!-- ═══════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════ -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <span class="nav-logo">&gt; samuel_decarnelle<span class="cursor-blink">_</span></span>
+            <ul class="nav-links">
+                <li><a href="#about">[about]</a></li>
+                <li><a href="#homelab">[homelab]</a></li>
+                <li><a href="#projects">[projects]</a></li>
+                <li><a href="#skills">[skills]</a></li>
+                <li><a href="#certifications">[certifications]</a></li>
+                <li><a href="#contact">[contact]</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">[dark]</span>
+            </button>
+            <button id="burger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+       <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-terminal">
+                <div class="terminal-bar">
+                    <span class="t-dot red"></span>
+                    <span class="t-dot yellow"></span>
+                    <span class="t-dot green"></span>
+                    <span class="t-title">samuel@portfolio ~ $</span>
+                </div>
+
+                <!-- hero-terminal is the scrollable outer shell -->
+                <!-- hero-terminal-body is where JS injects all lines -->
+                <div class="terminal-body" id="hero-terminal">
+                    <div id="hero-terminal-body">
+
+                        <!-- The input line must be the last child inside hero-terminal-body -->
+                        <!-- terminal.js inserts all output lines BEFORE this wrapper -->
+                        <div class="terminal-input-line" id="terminal-input-line">
+                            <span class="t-prompt" id="terminal-prompt">samuel@portfolio:~ $&nbsp;</span>
+                            <input
+                                type="text"
+                                id="terminal-input"
+                                autocomplete="off"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                spellcheck="false"
+                                aria-label="Terminal input"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#homelab" class="btn-primary">[explore homelab]</a>
+                <a href="#contact" class="btn-secondary">[contact me]</a>
+                <a href="assets/resume/resume.pdf" class="btn-secondary" download>[download cv]</a>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- ═══════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════ -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">&gt; about_me<span class="cursor-blink">_</span></h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am Samuel Decarnelle, a cybersecurity student based in France
+                        with a particular focus on offensive security and penetration testing.
+                        My interest in security did not begin in a classroom. It began with
+                        the kind of curiosity that leads you to take systems apart, understand
+                        every layer, and ask what happens when something is configured incorrectly.
+                    </p>
+                    <p>
+                        I run Arch Linux on my personal machine not because it is fashionable,
+                        but because it demands that you understand your system completely.
+                        I self-host my infrastructure on a 5-node Proxmox cluster hosting
+                        over 50 assets, built as a collaborative red team training environment
+                        with two colleagues.
+                    </p>
+                    <p>
+                        I believe that the best way to defend a system is to understand
+                        precisely how it can be broken.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">lab assets</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">proxmox nodes</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">network zones</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">collaborators</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         HOMELAB — DEDICATED STAR SECTION
+    ═══════════════════════════════════════ -->
+    <section id="homelab">
+        <div class="container">
+            <h2 class="section-title">&gt; homelab_infrastructure<span class="cursor-blink">_</span></h2>
+            <p class="section-subtitle">
+                Enterprise-grade, high-availability, VLAN-segmented red team training environment.
+            </p>
+
+            <!-- Architecture Diagram -->
+            <div class="diagram-block">
+                <div class="terminal-bar">
+                    <span class="t-dot red"></span>
+                    <span class="t-dot yellow"></span>
+                    <span class="t-dot green"></span>
+                    <span class="t-title">architecture.txt</span>
+                </div>
+                <pre class="diagram-content">
+┌─────────────────────────────────────────────────────────────┐
+│                        INTERNET                             │
+└───────────────────────────┬─────────────────────────────────┘
+                            │
+┌───────────────────────────▼─────────────────────────────────┐
+│              pfSense HA PAIR (WAN)                          │
+│         VRRP VIP — Active / Passive Failover                │
+└──────┬──────────┬──────────┬──────────┬──────────┬──────────┘
+       │          │          │          │          │
+  VLAN 50    VLAN 60    VLAN 70    VLAN 80    VLAN 90
+  ADMIN       DMZ       PROD      PRE-PROD     SOC
+       │          │          │          │          │
+  ┌────┴───┐ ┌────┴───┐ ┌────┴───┐ ┌────┴───┐ ┌────┴───┐
+  │Mgmt    │ │LB x2   │ │Web x2  │ │Web x2  │ │Wazuh x2│
+  │Bastion │ │Bastion │ │AD  x2  │ │AD  x2  │ │Suricat.│
+  │Arch PC │ │RevProxy│ │DB  x2  │ │DB  x2  │ │Shuffle │
+  │        │ │VPN     │ │DNS x2  │ │DNS x2  │ │Zabbix  │
+  │        │ │Mail x2 │ │DHCP x2 │ │DHCP x2 │ │Bastion │
+  └────────┘ └────────┘ └────────┘ └────────┘ └────────┘
+                            │
+┌───────────────────────────▼─────────────────────────────────┐
+│            PROXMOX CLUSTER — 5 NODES                        │
+│     .249  /  .250  /  .251  /  .252  /  .253                │
+│          Shared Network 192.168.40.0/24                     │
+└─────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <!-- Homelab Stats Grid -->
+            <div class="homelab-zones">
+                <div class="zone-card" data-zone="admin">
+                    <span class="zone-label">[VLAN 50 — ADMIN]</span>
+                    <p>Management access, Arch Linux workstation, bastion host, administrative control plane.</p>
+                </div>
+                <div class="zone-card" data-zone="dmz">
+                    <span class="zone-label">[VLAN 60 — DMZ]</span>
+                    <p>Load balancers, reverse proxies, VPN gateway, mail servers, public-facing bastion. Redundant pairs.</p>
+                </div>
+                <div class="zone-card" data-zone="prod">
+                    <span class="zone-label">[VLAN 70 — PRODUCTION]</span>
+                    <p>Web servers, Active Directory, databases, DNS, DHCP. Full HA with redundant pairs.</p>
+                </div>
+                <div class="zone-card" data-zone="pre">
+                    <span class="zone-label">[VLAN 150 — PRE-PROD]</span>
+                    <p>Apache testing, Windows Server 2025 with ADDS, DHCP testing environment.</p>
+                </div>
+                <div class="zone-card" data-zone="soc">
+                    <span class="zone-label">[VLAN 90 — SOC]</span>
+                    <p>Wazuh SIEM, Suricata IDS, Shuffle SOAR, Zabbix monitoring, OpenCTI threat intelligence.</p>
+                </div>
+                <div class="zone-card" data-zone="cyber">
+                    <span class="zone-label">[VLAN 255 — CYBER]</span>
+                    <p>Isolated offensive security subnet. Legal red team target environment for penetration testing practice.</p>
+                </div>
+            </div>
+
+            <div class="homelab-cta">
+                <a href="https://github.com/yourrepo/homelab" class="btn-primary" target="_blank">
+                    [view full documentation on github]
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PROJECTS — DATA-DRIVEN, UPDATABLE
+    ═══════════════════════════════════════ -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">&gt; projects<span class="cursor-blink">_</span></h2>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">[all]</button>
+                <button class="filter-btn" data-filter="linux">[linux]</button>
+                <button class="filter-btn" data-filter="networking">[networking]</button>
+                <button class="filter-btn" data-filter="offensive">[offensive]</button>
+                <button class="filter-btn" data-filter="scripting">[scripting]</button>
+                <button class="filter-btn" data-filter="ctf">[ctf]</button>
+            </div>
+
+            <!-- Project Cards — Injected by renderer.js -->
+            <div id="projects-grid" class="projects-grid">
+                <!-- DO NOT EDIT THIS DIV MANUALLY -->
+                <!-- All content is generated from data/projects.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SKILLS
+    ═══════════════════════════════════════ -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">&gt; skills<span class="cursor-blink">_</span></h2>
+            <div class="skills-grid">
+
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">[offensive security]</h3>
+                    <ul class="skill-list">
+                        <li>Penetration Testing Methodology</li>
+                        <li>Network Exploitation</li>
+                        <li>Privilege Escalation</li>
+                        <li>Lateral Movement</li>
+                        <li>Defense Evasion</li>
+                        <li>Kali Linux</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">[infrastructure]</h3>
+                    <ul class="skill-list">
+                        <li>Proxmox VE (5-node cluster)</li>
+                        <li>pfSense — HA, VLAN, VPN</li>
+                        <li>VLAN Segmentation</li>
+                        <li>WireGuard VPN</li>
+                        <li>Load Balancing (HAProxy)</li>
+                        <li>Active Directory (WS 2025)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">[defensive / soc]</h3>
+                    <ul class="skill-list">
+                        <li>Wazuh SIEM</li>
+                        <li>Suricata IDS</li>
+                        <li>Shuffle SOAR</li>
+                        <li>Zabbix Monitoring</li>
+                        <li>OpenCTI</li>
+                        <li>Fail2Ban</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">[systems]</h3>
+                    <ul class="skill-list">
+                        <li>Arch Linux — advanced</li>
+                        <li>Ubuntu Server — hardening</li>
+                        <li>Windows Server 2025</li>
+                        <li>Bash Scripting</li>
+                        <li>SSH Hardening</li>
+                        <li>Kernel Parameter Tuning</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">[networking]</h3>
+                    <ul class="skill-list">
+                        <li>TCP/IP, DNS, DHCP</li>
+                        <li>Firewall Rules (iptables, UFW)</li>
+                        <li>Reverse Proxy (Nginx, Apache)</li>
+                        <li>Network Monitoring</li>
+                        <li>Cisco Packet Tracer</li>
+                        <li>VRRP / Failover</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">[web / dev]</h3>
+                    <ul class="skill-list">
+                        <li>HTML / CSS / JavaScript</li>
+                        <li>PHP</li>
+                        <li>Git / GitHub</li>
+                        <li>Self-hosting</li>
+                        <li>Docker (learning)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CERTIFICATIONS
+    ═══════════════════════════════════════ -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">&gt; certifications<span class="cursor-blink">_</span></h2>
+            <div class="cert-terminal">
+                <div class="terminal-bar">
+                    <span class="t-dot red"></span>
+                    <span class="t-dot yellow"></span>
+                    <span class="t-dot green"></span>
+                    <span class="t-title">certifications ~</span>
+                </div>
+                <div class="terminal-body" id="cert-body">
+                    <!-- Injected by terminal.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════ -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">&gt; contact<span class="cursor-blink">_</span></h2>
+            <div class="contact-grid">
+                <div class="contact-links">
+                    <a href="https://github.com/Asashi-Git" target="_blank" class="contact-line">
+                        <span class="contact-prompt">$</span>
+                        <span class="contact-label">github</span>
+                        <span class="contact-value">github.com/Asashi-Git</span>
+                    </a>
+                    <a href="https://linkedin.com/in/samuel-decarnelle/" target="_blank" class="contact-line">
+                        <span class="contact-prompt">$</span>
+                        <span class="contact-label">linkedin</span>
+                        <span class="contact-value">linkedin.com/in/samuel-decarnelle</span>
+                    </a>
+                    <a href="https://tryhackme.com/p/Asashii" target="_blank" class="contact-line">
+                        <span class="contact-prompt">$</span>
+                        <span class="contact-label">tryhackme</span>
+                        <span class="contact-value">tryhackme.com/p/Asashii</span>
+                    </a>
+                    <a href="mailto:samueldecarnelle@gmail.com" class="contact-line">
+                        <span class="contact-prompt">$</span>
+                        <span class="contact-label">email</span>
+                        <span class="contact-value">samueldecarnelle@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer id="footer">
+        <div class="container">
+            <p>
+                &gt; samuel_decarnelle — built with intent, not a template
+                <span class="cursor-blink">_</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════
+         SCRIPTS — ORDER MATTERS
+    ═══════════════════════════════════════ -->
+    <script src="data/projects.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+
