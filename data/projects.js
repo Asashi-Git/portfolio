@@ -51,7 +51,7 @@ const PROJECTS = [
         summary: "Freelance Linux engineering mission. Deployment and hardening of Arch Linux servers with Linux-Hardened kernel. Secure web server configuration, reverse proxy setup, and Bash automation scripts.",
         description: "Deployed two Arch Linux servers using the Linux-Hardened kernel for maximum system security. Configured a secure web server environment with industry-standard encryption protocols. Implemented a reverse proxy for traffic management and infrastructure isolation. Developed Bash scripts to automate Linux update cycles and reduce configuration drift.",
         link: {
-            label: "[view site]",
+            label: "[view website]",
             href: "https://brume-s.com/"
         }
     },
