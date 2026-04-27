@@ -282,9 +282,9 @@ section {
     border-radius:    0 0 var(--radius) var(--radius);
     padding:          1.5rem;
 
-    height:           340px;
-    min-height:       340px;
-    max-height:       340px;
+    /* height:           340px; */
+    /* min-height:       340px; */
+    /* max-height:       340px; */
 
     width:            100%;
     min-width:        0;
@@ -324,9 +324,9 @@ section {
 
 /* ── CERTIFICATIONS TERMINAL — separate fixed height ── */
 #cert-body {
-    height:           340px;
-    min-height:       340px;
-    max-height:       340px;
+    /* height:           340px; */
+    /* min-height:       340px; */
+    /* max-height:       340px; */
     width:            100%;
     min-width:        0;
     box-sizing:       border-box;
@@ -809,16 +809,16 @@ section {
     .hero-cta        { flex-direction: column; }
     .diagram-content { font-size: 0.65rem; }
 
-    .terminal-body {
-        height:     280px;
-        min-height: 280px;
-        max-height: 280px;
-    }
-    #cert-body {
-        height:     280px;
-        min-height: 280px;
-        max-height: 280px;
-    }
+    /* .terminal-body { */
+    /*     height:     280px; */
+    /*     min-height: 280px; */
+    /*     max-height: 280px; */
+    /* } */
+    /* #cert-body { */
+    /*     height:     280px; */
+    /*     min-height: 280px; */
+    /*     max-height: 280px; */
+    /* } */
 }
 
 /* ── SCROLL REVEAL ───────────────────────────── */
