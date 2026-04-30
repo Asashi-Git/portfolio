@@ -23,26 +23,6 @@ const PROJECTS = [
         }
     },
     {
-        id: "kpmg-powershell",
-        name: "Asset Lifecycle Automation — KPMG",
-        status: "completed",
-        featured: true,
-        tags: ["scripting", "devops", "windows"],
-        summary: "PowerShell automation tool leveraging MDE exports and external APIs to classify 53+ enterprise assets as Supported, EOL, Near-EOL, or EOS. Built during a DevOps internship at KPMG.",
-        description: "Developed during a 4-month DevOps internship at KPMG (May–August 2025). Automated asset lifecycle classification using Microsoft Defender for Endpoint exports and external API calls. Also contributed to Active Directory auditing, identifying KPMG France perimeter users in collaboration with the DevOps team.",
-        link: null
-    },
-    {
-        id: "ctf-ipssi",
-        name: "CTF Event Design — IPSSI Recruitment",
-        status: "completed",
-        featured: true,
-        tags: ["offensive", "ctf", "proxmox", "linux"],
-        summary: "Designed and deployed a full Capture The Flag event for IPSSI student recruitment. 10 progressive levels plus one hidden challenge. Virtualized on Proxmox with 4 hardened Linux instances.",
-        description: "Complete ownership of a CTF event from challenge design to infrastructure deployment. 10 challenges covering web, network, forensics, and offensive security disciplines. Infrastructure deployed on Proxmox with high-availability guarantees for event continuity. Freelance contract, April–May 2025.",
-        link: null
-    },
-    {
         id: "brume-linux",
         name: "Linux Engineering — Brume-s",
         status: "completed",
@@ -56,16 +36,52 @@ const PROJECTS = [
         }
     },
     {
+        id: "kpmg-powershell",
+        name: "Asset Lifecycle Automation — KPMG",
+        status: "completed",
+        featured: true,
+        tags: ["scripting", "devops", "windows"],
+        summary: "PowerShell automation tool leveraging MDE exports and external APIs to classify 25000+ enterprise assets as Supported, EOL, Near-EOL, or EOS. Built during a DevOps internship at KPMG.",
+        description: "Developed during a 3-month DevOps internship at KPMG (May–August 2025). Automated asset lifecycle classification using Microsoft Defender for Endpoint exports and external API calls. Also contributed to Active Directory auditing, identifying KPMG France perimeter users in collaboration with the DevOps team.",
+        link: {
+            label: "[view website]",
+            href: "https://kpmg.com/fr/fr.html"
+        }
+    },
+    {
+        id: "ctf-ipssi",
+        name: "CTF Event Design — IPSSI Recruitment",
+        status: "completed",
+        featured: true,
+        tags: ["offensive", "ctf", "proxmox", "linux"],
+        summary: "Designed and deployed a full Capture The Flag event for IPSSI student recruitment. 10 progressive levels plus one hidden challenge. Virtualized on Proxmox with 4 hardened Linux instances.",
+        description: "Complete ownership of a CTF event from challenge design to infrastructure deployment. 10 challenges covering web, network, forensics, and offensive security disciplines. Infrastructure deployed on Proxmox with high-availability guarantees for event continuity. Freelance contract, April–May 2025.",
+        link: null
+    },
+    {
         id: "arch-hardening",
         name: "Arch Linux Hardening Scripts",
         status: "completed",
-        featured: false,
+        featured: true,
         tags: ["linux", "scripting", "defensive"],
         summary: "Bash automation scripts for Arch Linux service hardening. Covers SSH configuration, key management, PAM policies, and strict error handling with cleanup traps.",
         description: "Documented hardening methodology for Arch Linux environments including SSH daemon configuration, public key authentication enforcement, PAM policy tuning, and automated security checks. Scripts designed for reproducibility across production and pre-production environments.",
         link: {
             label: "[view on github]",
-            href: "https://github.com/Asashi-Git"
+            href: "https://github.com/Asashi-Git/scripts/tree/main/hardened-ArchLinux"
+        }
+    },
+    {
+        id: "arch-install",
+        name: "Encrypted Arch Linux Installation Script",
+        status: "completed",
+        featured: true,
+        tags: ["linux", "scripting", "defensive"],
+        summary: "Fully automated, interactive Bash script for installing Arch Linux with LUKS2 full-disk encryption, LVM partitioning, and security hardening. Covers everything from disk layout to bootloader configuration.",
+        description: "End-to-end Arch Linux installation script driven entirely by interactive prompts. Implements LUKS2 encryption on the root partition, LVM volume group management with configurable partition sizes for root, var, usr, data, home, and swap. Enforces hardened mount options (nosuid, nodev, noexec) per partition. Handles keyboard layout selection, locale, timezone, hostname, user creation, sudo policy, and GRUB bootloader configuration with encrypted device UUID injection. Supports optional desktop environment installation (GNOME, KDE, Xfce, MATE, i3). Designed for reproducibility and operator safety with confirmation prompts at every destructive step.",
+        link: {
+            label: "[view on github]",
+            href: "https://github.com/Asashi-Git/scripts/blob/main/encrypted-ArchLinux/encrypted-arch-install.sh"
         }
     },
     {
