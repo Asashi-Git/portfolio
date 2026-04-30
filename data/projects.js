@@ -23,6 +23,32 @@ const PROJECTS = [
         }
     },
     {
+        id: "hashrelay",
+        name: "HashRelay",
+        status: "active",
+        featured: true,
+        tags: ["linux", "scripting", "networking", "defensive"],
+        summary: "Client–NAS backup orchestrator for Linux LANs and WANs. Reduces network load by synchronizing backups only when hashes diverge, guaranteeing integrity across the infrastructure without transferring redundant payloads.",
+        description: "Two-agent architecture (client and server). The client computes SHA hashes of each time-stamped archive and compares them against the server's copies — a transfer only occurs when a divergence is detected. Covers full deployment lifecycle: distro-agnostic package installation, UFW firewall configuration, RSA key-only SSH authentication, automated retention policy (default: 2 generations before deletion), and a CUI controller exposing server reachability, disk usage, and configuration options. Usable via hashrelay -add / -remove for live backup set management.",
+        link: {
+            label: "[view on github]",
+            href: "https://github.com/Asashi-Git/scripts/tree/main/maintenance-Linux/HashRelay"
+        }
+    },
+    {
+        id: "geo-ip-wifi",
+        name: "GeoIP-WiFi",
+        status: "active",
+        featured: true,
+        tags: ["scripting", "offensive", "networking"],
+        summary: "Python CLI tool combining IP geolocation and WiFi-based physical positioning. Queries four positioning APIs in priority order and validates every result against IP geolocation via Haversine distance, rejecting garbage data beyond a 500km threshold.",
+        description: "Scans visible access points via iw and nmcli, filters out randomized MACs (unusable for positioning), then attempts RSSI-weighted triangulation through a prioritized API chain: mylnikov.org (keyless, MIT), Unwired Labs (free tier), Google Geolocation API, and WiGLE as last resort. Each WiFi result is cross-validated against ip-api.com geolocation using the Haversine formula — results diverging more than 500km are automatically rejected. Supports a guided setup wizard for API key management stored at ~/.config/geo_ip/config.json with strict 0600 permissions.",
+        link: {
+            label: "[view on github]",
+            href: "https://github.com/Asashi-Git/scripts/tree/main/geo-ip"
+        }
+    },
+    {
         id: "brume-linux",
         name: "Linux Engineering — Brume-s",
         status: "completed",
