@@ -63,6 +63,14 @@ body {
         color var(--transition);
 }
 
+#hero,
+#certifications,
+#projects,
+#skills,
+#contact {
+    overflow-x: hidden;
+}
+
 a {
     color: var(--accent);
     text-decoration: none;
@@ -82,11 +90,13 @@ img { max-width: 100%; }
     padding:    0 2rem;
     overflow-x: hidden;
     box-sizing: border-box;
+    scrollbar-width: none;
 }
 
 section {
     padding: 6rem 0;
     border-bottom: 1px solid var(--border);
+    overflow: clip;
 }
 
 /* ── TYPOGRAPHY ──────────────────────────────── */
@@ -420,14 +430,6 @@ section {
     flex-shrink: 0;
 }
 
-/*
- * The input field is the most critical element.
- * flex: 1 allows it to fill the remaining row width.
- * width: 0 is mandatory: without it, an empty input
- * sizes itself to its placeholder and pushes every
- * ancestor wider. With width: 0, it starts at zero
- * and only grows via flex into the space already available.
- */
 #terminal-input {
     background:  transparent;
     border:      none;
